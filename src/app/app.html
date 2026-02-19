@@ -1,189 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sniper155 - Premium Motorcycles</title>
-</head>
-<body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">🏍️ Sniper155/MY-FIRST-ANGULAR-SHOP</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Bikes</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="cart-icon" onclick="toggleCart()">
-          🛒 <span class="cart-count" id="cartCount">0</span>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Shopping Cart Modal -->
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-content">
-      <span class="close-btn" onclick="toggleCart()">&times;</span>
-      <h2>Shopping Cart</h2>
-      <div id="cartItems" class="cart-items">
-        <p class="empty-cart">Your cart is empty</p>
-      </div>
-      <div class="cart-total">
-        <h3>Total: $<span id="cartTotal">0.00</span></h3>
-        <button class="checkout-btn">Proceed to Checkout</button>
-      </div>
+<div class="container">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+      <h1>My Angular Shop</h1>
     </div>
-  </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="hero-content">
-      <h1>Sniper155</h1>
-      <p>Premium Performance Motorcycles</p>
-      <button class="cta-button">Explore Models</button>
+      <h2>Your dream bike that fits your style</h2>
+      
+      <button>Shop Now</button>
     </div>
+    
   </section>
+  
+<app-products></app-products>
 
-  <!-- Products Section -->
-  <section id="products" class="products">
-    <div class="container">
-      <h2>Our Motorcycle Models</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <div class="product-image motorcycle-image">🏍️</div>
-          <h3>Sniper155 Standard</h3>
-          <p class="price">$2,999</p>
-          <p class="specs">155cc • 14.8 HP • 5-Speed</p>
-          <button class="add-to-cart" onclick="addToCart('Sniper155 Standard', 2999)">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <div class="product-image motorcycle-image">🏍️</div>
-          <h3>Sniper155 Sport</h3>
-          <p class="price">$3,499</p>
-          <p class="specs">155cc • 16.5 HP • 6-Speed</p>
-          <button class="add-to-cart" onclick="addToCart('Sniper155 Sport', 3499)">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <div class="product-image motorcycle-image">🏍️</div>
-          <h3>Sniper155 Elite</h3>
-          <p class="price">$4,199</p>
-          <p class="specs">155cc • 18.2 HP • 6-Speed Fuel Injection</p>
-          <button class="add-to-cart" onclick="addToCart('Sniper155 Elite', 4199)">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <div class="product-image motorcycle-image">🏍️</div>
-          <h3>Sniper155 Racing</h3>
-          <p class="price">$4,999</p>
-          <p class="specs">155cc • 20 HP • Advanced Suspension</p>
-          <button class="add-to-cart" onclick="addToCart('Sniper155 Racing', 4999)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Sniper155</h2>
-      <p>Sniper155 represents the pinnacle of modern motorcycle engineering. With cutting-edge technology, superior performance, and elegant design, every Sniper155 is built to deliver an unforgettable riding experience. From city streets to open highways, Sniper155 motorcycles combine reliability, power, and style for the modern rider.</p>
-    </div>
-  </section>
+  
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Get in Touch</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Tell us about your interests" rows="5" required></textarea>
-        <button type="submit" class="submit-btn">Send Inquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer Section -->
   <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Sniper155 Motorcycles. All rights reserved. | Premium Performance Since 2020</p>
+    <p>&copy; 2026 Sniper Motors All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
     </div>
   </footer>
+</div>
 
-  <script>
-    let cart = [];
 
-    function addToCart(productName, price) {
-      const existingItem = cart.find(item => item.name === productName);
-
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ name: productName, price: price, quantity: 1 });
-      }
-
-      updateCart();
-      showNotification(productName + ' added to cart!');
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartCount = document.getElementById('cartCount');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-
-      // Update count
-      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-      cartCount.textContent = totalItems;
-
-      // Update items display
-      if (cart.length === 0) {
-        cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-        cartTotal.textContent = '0.00';
-      } else {
-        cartItems.innerHTML = cart.map((item, index) => `
-          <div class="cart-item">
-            <div class="item-info">
-              <h4>${item.name}</h4>
-              <p>$${item.price} x ${item.quantity}</p>
-            </div>
-            <div class="item-actions">
-              <button onclick="removeFromCart(${index})" class="remove-btn">Remove</button>
-            </div>
-          </div>
-        `).join('');
-
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        cartTotal.textContent = total.toFixed(2);
-      }
-    }
-
-    function toggleCart() {
-      const cartModal = document.getElementById('cartModal');
-      cartModal.classList.toggle('active');
-    }
-
-    function showNotification(message) {
-      const notification = document.createElement('div');
-      notification.className = 'notification';
-      notification.textContent = message;
-      document.body.appendChild(notification);
-
-      setTimeout(() => notification.remove(), 3000);
-    }
-
-    // Close cart when clicking outside
-    window.onclick = function(event) {
-      const cartModal = document.getElementById('cartModal');
-      if (event.target == cartModal) {
-        cartModal.classList.remove('active');
-      }
-    }
-  </script>
-</body>
-</html>
