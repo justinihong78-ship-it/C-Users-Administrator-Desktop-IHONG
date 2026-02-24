@@ -1,7 +1,10 @@
 /* ================= PRODUCTS ================= */
 .products {
   padding: 70px 20px;
+<<<<<<< HEAD
   position: relative;
+=======
+>>>>>>> 750636bd2b6d4675574f7f2adfadbf35acce5685
 }
 
 .product-grid {
@@ -12,6 +15,7 @@
   gap: 25px;
 }
 
+<<<<<<< HEAD
 /* (Hero moved to app level) */
 
 /* Cart icon (positioned top-right) */
@@ -54,6 +58,8 @@
   }
 }
 
+=======
+>>>>>>> 750636bd2b6d4675574f7f2adfadbf35acce5685
 /* ================= PRODUCT CARD ================= */
 .product-card {
   background: #ffffff;
@@ -87,6 +93,7 @@
   color: #0096c7;
 }
 
+<<<<<<< HEAD
 .product-image { margin-bottom: 12px; }
 .product-img {
   width: 100%;
@@ -96,6 +103,8 @@
   background: #f6fbfd;
 }
 
+=======
+>>>>>>> 750636bd2b6d4675574f7f2adfadbf35acce5685
 /* ================= ADD TO CART BUTTON ================= */
 .add-to-cart {
   background: linear-gradient(135deg, #4cc9f0, #0096c7);
