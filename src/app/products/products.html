@@ -1,0 +1,51 @@
+<section class="products">
+  <h2>Our Motorcycle Models</h2>
+
+  <!-- Cart Icon -->
+  <div class="cart-icon" (click)="toggleCart()">
+    🛒 (MY CART) <span class="cart-count">{{ getCartCount() }}</span>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let item of products">
+      <div class="product-image">
+        <img [src]="item.image" [alt]="item.name" class="product-img" />
+      </div>
+      <h3>{{ item.name }}</h3>
+      <p class="price">${{ item.price }}</p>
+      <p class="specs">{{ item.specs }}</p>
+
+      <p *ngIf="item.available; else outStock">Available</p>
+      <ng-template #outStock><p class="out-stock">Out of Stock</p></ng-template>
+
+      <button class="add-to-cart" (click)="addToCart(item)" [disabled]="!item.available">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" *ngIf="showCart">
+    <div class="cart-content">
+      <span class="close-btn" (click)="toggleCart()">&times;</span>
+      <h2>Shopping Cart</h2>
+
+      <div *ngIf="cart.length === 0" class="empty-cart">
+        Your cart is empty
+      </div>
+
+      <div *ngFor="let item of cart; let i = index" class="cart-item">
+        <div>
+          <h4>{{ item.name }}</h4>
+          <p>${{ item.price }} x {{ item.quantity }}</p>
+        </div>
+        <button class="remove-btn" (click)="removeFromCart(i)">Remove</button>
+      </div>
+
+      <div class="cart-total" *ngIf="cart.length > 0">
+        <h3>Total: ${{ getTotalPrice() }}</h3>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>
