@@ -2,6 +2,8 @@
 .products {
   padding: 70px 20px;
   position: relative;
+  background: linear-gradient(180deg, #e6f7ff 0%, #cceeff 100%);
+  color: #012a4a;
 }
 
 .product-grid {
@@ -11,6 +13,28 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
 }
+
+.products h2 {
+  color: #023e8a;
+  background: rgba(2,62,138,0.06);
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(2,62,138,0.06);
+}
+
+/* Checkout button (shop action) */
+.checkout-btn {
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.checkout-btn:hover { filter: brightness(0.95); transform: translateY(-2px); }
 
 .cart-icon {
   position: absolute;
